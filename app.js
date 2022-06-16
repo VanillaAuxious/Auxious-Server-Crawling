@@ -12,7 +12,9 @@ require('dotenv').config();
 
 connectDB();
 const app = express();
-
+(async function () {
+  await runAuction();
+})();
 (function () {
   const crawlingAuction = schedule.scheduleJob(
     '0 0 */1 0 0 0',
