@@ -13,7 +13,10 @@ async function runAuctionCrawling() {
 
   chrome.setDefaultService(service);
 
-  const driver = await new webdriver.Builder().forBrowser('chrome').build();
+  const driver = await new webdriver.Builder()
+    .forBrowser('chrome')
+    .setChromeOptions(new chrome.Options().headless())
+    .build();
 
   await driver.manage().setTimeouts({
     implicit: 10000,
